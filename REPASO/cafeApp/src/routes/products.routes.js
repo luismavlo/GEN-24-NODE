@@ -2,10 +2,22 @@ const express = require("express");
 
 const router = express.Router();
 
+const validProduct = (req, res, next) => {
+  const { name } = req.body;
+
+  if (!name) {
+    return res.status(400).json({
+      message: "the name is required",
+    });
+  }
+
+  next();
+};
+
 const findProducts = (req, res) => {
   const time = req.requestTime;
 
-  res.json({
+  return res.json({
     requestTime: time,
     message: "Hello from the get products",
   });
@@ -14,16 +26,14 @@ const findProducts = (req, res) => {
 const updateProduct = (req, res) => {
   const id = req.params.id;
 
-  res.json({
+  return res.json({
     message: "Hello from the patch product",
     id,
   });
 };
 
 const createProduct = (req, res) => {
-  console.log(req.body);
-
-  res.json({
+  return res.status(201).json({
     message: "Hello from the post products",
     product: req.body,
   });
@@ -33,7 +43,7 @@ const findProduct = (req, res) => {
   const id = req.params.id;
   console.log(req.params);
 
-  res.json({
+  return res.json({
     message: "Hello from the get one products",
     id,
   });
@@ -42,18 +52,13 @@ const findProduct = (req, res) => {
 const deleteProduct = (req, res) => {
   const id = req.params.id;
 
-  res.json({
+  return res.json({
     message: "Hello from the delete product",
     id,
   });
 };
 
-const helloFromProduct = (req, res, next) => {
-  console.log("hello from de product route");
-  next();
-};
-
-router.route("/").get(findProducts).post(createProduct);
+router.route("/").get(findProducts).post(validProduct, createProduct);
 
 router
   .route("/:id")
