@@ -45,14 +45,27 @@ const deleteProduct = (req, res) => {
   });
 };
 
-router.get("/", findProducts);
+const helloFromProduct = (req, res, next) => {
+  console.log("hello fron de product route");
+  next();
+};
 
-router.post("/", createProduct);
+router.route("/").get(findProducts).post(createProduct);
 
-router.get("/:id", findProduct);
+router
+  .route("/:id")
+  .get(findProduct)
+  .patch(updateProduct)
+  .delete(deleteProduct);
 
-router.patch("/:id", updateProduct);
+// router.get("/", findProducts);
 
-router.delete("/:id", deleteProduct);
+// router.post("/", createProduct);
+
+// router.get("/:id", findProduct);
+
+// router.patch("/:id", updateProduct);
+
+// router.delete("/:id", deleteProduct);
 
 module.exports = router;
