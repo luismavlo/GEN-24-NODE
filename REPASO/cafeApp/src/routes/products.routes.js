@@ -3,7 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 const findProducts = (req, res) => {
+  const time = req.requestTime;
+
   res.json({
+    requestTime: time,
     message: "Hello from the get products",
   });
 };
@@ -46,7 +49,7 @@ const deleteProduct = (req, res) => {
 };
 
 const helloFromProduct = (req, res, next) => {
-  console.log("hello fron de product route");
+  console.log("hello from de product route");
   next();
 };
 

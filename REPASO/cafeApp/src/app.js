@@ -8,13 +8,12 @@ const app = express();
 //entienda formatos json que le estan llegando
 app.use(express.json());
 
-const helloMiddleware = (req, res, next) => {
-  console.log("Hello from the middleware!");
+app.use((req, res, next) => {
+  const time = new Date().toISOString();
 
+  req.requestTime = time;
   next();
-};
-
-app.use(helloMiddleware);
+});
 
 app.use("/api/v1/products", productRouter);
 
