@@ -1,4 +1,6 @@
 const express = require("express");
+// const { findProducts } = require('./../controllers/products.controller')
+const productsController = require("./../controllers/products.controller");
 
 const router = express.Router();
 
@@ -14,57 +16,16 @@ const validProduct = (req, res, next) => {
   next();
 };
 
-const findProducts = (req, res) => {
-  const time = req.requestTime;
-
-  return res.json({
-    requestTime: time,
-    message: "Hello from the get products",
-  });
-};
-
-const updateProduct = (req, res) => {
-  const id = req.params.id;
-
-  return res.json({
-    message: "Hello from the patch product",
-    id,
-  });
-};
-
-const createProduct = (req, res) => {
-  return res.status(201).json({
-    message: "Hello from the post products",
-    product: req.body,
-  });
-};
-
-const findProduct = (req, res) => {
-  const id = req.params.id;
-  console.log(req.params);
-
-  return res.json({
-    message: "Hello from the get one products",
-    id,
-  });
-};
-
-const deleteProduct = (req, res) => {
-  const id = req.params.id;
-
-  return res.json({
-    message: "Hello from the delete product",
-    id,
-  });
-};
-
-router.route("/").get(findProducts).post(validProduct, createProduct);
+router
+  .route("/")
+  .get(productsController.findProducts)
+  .post(validProduct, productsController.createProduct);
 
 router
   .route("/:id")
-  .get(findProduct)
-  .patch(updateProduct)
-  .delete(deleteProduct);
+  .get(productsController.findProduct)
+  .patch(productsController.updateProduct)
+  .delete(productsController.deleteProduct);
 
 // router.get("/", findProducts);
 
