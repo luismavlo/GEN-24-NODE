@@ -16,6 +16,13 @@ const validProduct = (req, res, next) => {
   next();
 };
 
+//! TAREA
+//* 1. CREAR LA CARPETA MIDDLEWARES
+//? 2. CREARSE EN LA CARPETA MIDDLEWARES UN ARCHIVO: validations.middleware.js
+//* 3. COPIAR Y EXPORTAR LA FUNCION VALID PRODUCT
+//? 4. IMPORTAR EN PRODUCT ROUTES LA FUNCIÓN ALGO COMO ESTO
+//?         const validationMiddleware = require('./........') ----- validationMiddleware.validProduct
+
 router
   .route("/")
   .get(productsController.findProducts)
