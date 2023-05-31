@@ -17,6 +17,9 @@ exports.updateProduct = (req, res) => {
 };
 
 exports.createProduct = (req, res) => {
+  const { name, image, ingredients, quantity, price, isNew, description } =
+    req.body;
+
   return res.status(201).json({
     message: "Hello from the post products",
     product: req.body,
