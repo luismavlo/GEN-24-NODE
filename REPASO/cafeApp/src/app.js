@@ -17,7 +17,4 @@ app.use((req, res, next) => {
 
 app.use("/api/v1/products", productRouter);
 
-//TODO: crearme una variable de entorno
-app.listen(3000, () => {
-  console.log("Server running on port 3000! 🐱‍🐉");
-});
+module.exports = app;
