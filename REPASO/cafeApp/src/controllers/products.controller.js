@@ -3,7 +3,11 @@ const Product = require("../models/product.model");
 exports.findProducts = async (req, res) => {
   const time = req.requestTime;
 
-  const products = await Product.findAll();
+  const products = await Product.findAll({
+    where: {
+      status: true,
+    },
+  });
 
   return res.json({
     requestTime: time,
@@ -56,14 +60,41 @@ exports.createProduct = async (req, res) => {
   }
 };
 
-exports.findProduct = (req, res) => {
-  const id = req.params.id;
-  console.log(req.params);
+exports.findProduct = async (req, res) => {
+  try {
+    //? 1. NOS TRAEMOS EL ID DE LOS PARAMETROS
+    const { id } = req.params; //DESTRUCION DE OBJETOS
 
-  return res.json({
-    message: "Hello from the get one products",
-    id,
-  });
+    //? 2. BUSCO EL PRODUCTO EN LA BASE DE DATOS
+    const product = await Product.findOne({
+      where: {
+        // id: id
+        id,
+        status: true,
+      },
+    });
+
+    //? 3. VALIDAR SI EL PRODUCTO EXISTE, SI NO, ENVIAR UN ERROR 404
+    if (!product) {
+      return res.status(404).json({
+        status: "error",
+        message: `The product with id: ${id} not found!`,
+      });
+    }
+
+    //? 4. ENVIAR LA RESPUESTA AL CLIENTE
+    return res.status(200).json({
+      status: "success",
+      message: "Product found",
+      product,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: "fail",
+      message: "Something went very wrong!",
+    });
+  }
 };
 
 exports.deleteProduct = (req, res) => {
