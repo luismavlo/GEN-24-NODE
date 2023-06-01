@@ -18,13 +18,41 @@ exports.findProducts = async (req, res) => {
   });
 };
 
-exports.updateProduct = (req, res) => {
-  const id = req.params.id;
+exports.updateProduct = async (req, res) => {
+  try {
+    // 1. TRAERNOS EL PRODUCTO QUE IBAMOS A ACTUALIZAR
+    const { id } = req.params;
+    // 2. NOS TRAJIMOS DE EL BODY LA INFORMACION QUE VAMOS A ACTUALIZAR
+    const { quantity, price } = req.body;
+    // 3. BUSCAR EL PRODUCTO QUE VAMOS A ACTUALIZAR
+    const product = await Product.findOne({
+      where: {
+        id,
+        status: true,
+      },
+    });
+    // 4. VALIDAR SI EL PRODUCTO EXISTE
+    if (!product) {
+      return res.status(404).json({
+        status: "error",
+        message: `Product with id: ${id} not found`,
+      });
+    }
+    // 5. PROCEDO A ACTUALIZARLO
+    await product.update({ quantity, price });
 
-  return res.json({
-    message: "Hello from the patch product",
-    id,
-  });
+    // 6. ENVIO LA CONFIRMACIÓN DE EXITO AL CLIENTE
+
+    res.status(200).json({
+      status: "success",
+      message: "The product has been updated",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: "fail",
+      message: "Something went very wrong!",
+    });
+  }
 };
 
 exports.createProduct = async (req, res) => {
@@ -53,7 +81,7 @@ exports.createProduct = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+    return res.status(500).json({
       status: "fail",
       message: "Something went very wrong!",
     });
@@ -90,7 +118,7 @@ exports.findProduct = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+    return res.status(500).json({
       status: "fail",
       message: "Something went very wrong!",
     });
