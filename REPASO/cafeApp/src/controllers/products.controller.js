@@ -42,7 +42,6 @@ exports.updateProduct = async (req, res) => {
     await product.update({ quantity, price });
 
     // 6. ENVIO LA CONFIRMACIÓN DE EXITO AL CLIENTE
-
     res.status(200).json({
       status: "success",
       message: "The product has been updated",
@@ -125,11 +124,36 @@ exports.findProduct = async (req, res) => {
   }
 };
 
-exports.deleteProduct = (req, res) => {
-  const id = req.params.id;
-
-  return res.json({
-    message: "Hello from the delete product",
-    id,
-  });
+exports.deleteProduct = async (req, res) => {
+  try {
+    //! traernos el id de los parametros
+    const { id } = req.params;
+    //! buscar el producto
+    const product = await Product.findOne({
+      where: {
+        status: true,
+        id,
+      },
+    });
+    //! validar si existe el producto
+    if (!product) {
+      return res.status(404).json({
+        status: "error",
+        message: `Product with id: ${id} not found!`,
+      });
+    }
+    //! actualizar el producto encontrado y actualizar el status a false
+    await product.update({ status: false }); //eliminacion logica
+    //await product.destroy() //eliminacion fisica
+    //! enviar respuesta al cliente
+    return res.status(200).json({
+      status: "success",
+      message: "the product has been deleted!",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: "fail",
+      message: "Something went very wrong!",
+    });
+  }
 };
