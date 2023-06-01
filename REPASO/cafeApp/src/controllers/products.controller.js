@@ -28,7 +28,7 @@ exports.updateProduct = async (req, res) => {
     const product = await Product.findOne({
       where: {
         id,
-        status: true,
+        status: "pending",
       },
     });
     // 4. VALIDAR SI EL PRODUCTO EXISTE
@@ -39,12 +39,13 @@ exports.updateProduct = async (req, res) => {
       });
     }
     // 5. PROCEDO A ACTUALIZARLO
-    await product.update({ quantity, price });
+    const resp = await product.update({ quantity, price });
 
     // 6. ENVIO LA CONFIRMACIÓN DE EXITO AL CLIENTE
     res.status(200).json({
       status: "success",
       message: "The product has been updated",
+      resp,
     });
   } catch (error) {
     return res.status(500).json({
