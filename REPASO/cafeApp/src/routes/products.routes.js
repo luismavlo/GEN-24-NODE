@@ -1,20 +1,21 @@
-const express = require("express");
+const express = require('express');
 
 //controllers
-const productsController = require("./../controllers/products.controller");
+const productsController = require('./../controllers/products.controller');
 
 //middlewares
-const validationMiddleware = require("./../middlewares/validations.middleware");
+const validationMiddleware = require('./../middlewares/validations.middleware');
 
 const router = express.Router();
 
 router
-  .route("/")
+  .route('/')
+  //esta ruta es para obtener productos, viene del app y va al controlador
   .get(productsController.findProducts)
   .post(validationMiddleware.validProduct, productsController.createProduct);
 
 router
-  .route("/:id")
+  .route('/:id')
   .get(productsController.findProduct)
   .patch(productsController.updateProduct)
   .delete(productsController.deleteProduct);

@@ -1,4 +1,4 @@
-const Product = require("../models/product.model");
+const Product = require('../models/product.model');
 
 exports.findProducts = async (req, res) => {
   const time = req.requestTime;
@@ -12,8 +12,8 @@ exports.findProducts = async (req, res) => {
   return res.json({
     requestTime: time,
     results: products.length,
-    status: "success",
-    message: "Products found",
+    status: 'success',
+    message: 'Products found',
     products,
   });
 };
@@ -28,13 +28,13 @@ exports.updateProduct = async (req, res) => {
     const product = await Product.findOne({
       where: {
         id,
-        status: "pending",
+        status: true,
       },
     });
     // 4. VALIDAR SI EL PRODUCTO EXISTE
     if (!product) {
       return res.status(404).json({
-        status: "error",
+        status: 'error',
         message: `Product with id: ${id} not found`,
       });
     }
@@ -43,14 +43,14 @@ exports.updateProduct = async (req, res) => {
 
     // 6. ENVIO LA CONFIRMACIÓN DE EXITO AL CLIENTE
     res.status(200).json({
-      status: "success",
-      message: "The product has been updated",
+      status: 'success',
+      message: 'The product has been updated',
       resp,
     });
   } catch (error) {
     return res.status(500).json({
-      status: "fail",
-      message: "Something went very wrong!",
+      status: 'fail',
+      message: 'Something went very wrong!',
     });
   }
 };
@@ -76,18 +76,18 @@ exports.createProduct = async (req, res) => {
     // PASO 3: ENVIAR UNA RESPUESTA AL CLIENTE
 
     return res.status(201).json({
-      message: "The product has been created!",
+      message: 'The product has been created!',
       product,
     });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
-      status: "fail",
-      message: "Something went very wrong!",
+      status: 'fail',
+      message: 'Something went very wrong!',
     });
   }
 };
-
+//esta funcion busca un producto por 1 id esta funcion viene de el archivo produc route
 exports.findProduct = async (req, res) => {
   try {
     //? 1. NOS TRAEMOS EL ID DE LOS PARAMETROS
@@ -105,22 +105,22 @@ exports.findProduct = async (req, res) => {
     //? 3. VALIDAR SI EL PRODUCTO EXISTE, SI NO, ENVIAR UN ERROR 404
     if (!product) {
       return res.status(404).json({
-        status: "error",
+        status: 'error',
         message: `The product with id: ${id} not found!`,
       });
     }
 
     //? 4. ENVIAR LA RESPUESTA AL CLIENTE
     return res.status(200).json({
-      status: "success",
-      message: "Product found",
+      status: 'success',
+      message: 'Product found',
       product,
     });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
-      status: "fail",
-      message: "Something went very wrong!",
+      status: 'fail',
+      message: 'Something went very wrong!',
     });
   }
 };
@@ -139,7 +139,7 @@ exports.deleteProduct = async (req, res) => {
     //! validar si existe el producto
     if (!product) {
       return res.status(404).json({
-        status: "error",
+        status: 'error',
         message: `Product with id: ${id} not found!`,
       });
     }
@@ -148,13 +148,13 @@ exports.deleteProduct = async (req, res) => {
     //await product.destroy() //eliminacion fisica
     //! enviar respuesta al cliente
     return res.status(200).json({
-      status: "success",
-      message: "the product has been deleted!",
+      status: 'success',
+      message: 'the product has been deleted!',
     });
   } catch (error) {
     return res.status(500).json({
-      status: "fail",
-      message: "Something went very wrong!",
+      status: 'fail',
+      message: 'Something went very wrong!',
     });
   }
 };
