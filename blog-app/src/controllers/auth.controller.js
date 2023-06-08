@@ -1,7 +1,15 @@
+const User = require('../models/users.model');
+
 exports.signup = async (req, res) => {
   try {
+    const { name, email, password, description } = req.body;
+
+    const user = await User.create({ name, email, password, description });
+
     res.status(200).json({
       status: 'success',
+      message: 'The user has been created',
+      user,
     });
   } catch (error) {
     console.log(error);

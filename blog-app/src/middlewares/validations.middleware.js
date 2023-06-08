@@ -29,5 +29,7 @@ exports.createUserValidation = [
   validFields,
 ];
 
+exports.loginUserValidation = [];
+
 //validar
 //name, email, password, description
