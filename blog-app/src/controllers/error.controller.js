@@ -1,4 +1,11 @@
+const AppError = require('./../utils/appError');
+const logger = require('./../utils/logger');
+
+const handleCastError23505 = () =>
+  new AppError('Duplicate field value: please use another value', 400);
+
 const sendErrorDev = (err, res) => {
+  logger.info(err);
   return res.status(err.statusCode).json({
     status: err.status,
     error: err,
@@ -8,6 +15,7 @@ const sendErrorDev = (err, res) => {
 };
 
 const sendErrorProd = (err, res) => {
+  logger.info(err);
   //Operational, trusted error: send message to client
   if (err.isOperational) {
     return res.status(err.statusCode).json({
@@ -32,7 +40,11 @@ const globalErrorHandler = (err, req, res, next) => {
   }
 
   if (process.env.NODE_ENV === 'production') {
-    sendErrorProd(err, res);
+    let error = err;
+
+    if (error.parent.code === '23505') error = handleCastError23505();
+
+    sendErrorProd(error, res);
   }
 };
 
