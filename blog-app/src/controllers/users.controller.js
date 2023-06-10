@@ -18,6 +18,8 @@ exports.findAllUsers = catchAsync(async (req, res, next) => {
 exports.findOneUser = catchAsync(async (req, res, next) => {
   const { user } = req;
 
+  throw new Error('esto es un error ocasionado');
+
   res.status(200).json({
     status: 'success',
     user,
