@@ -1,1 +1,2 @@
 [2023-06-10T03:00:49.707Z] info Cant find /api/v1/usersssss/1 on this server! undefined:undefined
+[2023-06-13T01:58:07.951Z] info llave duplicada viola restricción de unicidad «users_email_key» undefined:undefined
