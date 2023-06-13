@@ -5,6 +5,7 @@ const authController = require('./../controllers/auth.controller');
 
 //middlewares
 const validationMiddleware = require('./../middlewares/validations.middleware');
+const userMiddleware = require('./../middlewares/users.middleware');
 
 const router = express.Router();
 
@@ -15,5 +16,14 @@ router.post(
 );
 
 router.post('/login', authController.login);
+
+router.get('/renew', authController.renew);
+
+router.patch(
+  '/password/:id',
+  validationMiddleware.updateUserValidation,
+  userMiddleware.validUser,
+  authController.updatePassword
+);
 
 module.exports = router;
