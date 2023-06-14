@@ -97,7 +97,31 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 });
 
 exports.renew = catchAsync(async (req, res, next) => {
+  const { id } = req.sessionUser;
+
+  const user = await User.findOne({
+    where: {
+      id,
+      status: 'active',
+    },
+  });
+
+  if (!user) {
+    return next(new AppError('User not found', 404));
+  }
+
+  const token = await generateJWT(id);
+
   return res.status(200).json({
-    ok: true,
+    status: 'success',
+    token,
+    user: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      description: user.description,
+      profileImgUrl: user.profileImgUrl,
+      role: user.role,
+    },
   });
 });
