@@ -6,6 +6,7 @@ const authController = require('./../controllers/auth.controller');
 //middlewares
 const validationMiddleware = require('./../middlewares/validations.middleware');
 const userMiddleware = require('./../middlewares/users.middleware');
+const authMiddleware = require('./../middlewares/auth.middleware');
 
 const router = express.Router();
 
@@ -21,6 +22,7 @@ router.get('/renew', authController.renew);
 
 router.patch(
   '/password/:id',
+  authMiddleware.protect,
   validationMiddleware.updateUserValidation,
   userMiddleware.validUser,
   authController.updatePassword
