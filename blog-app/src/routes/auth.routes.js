@@ -18,11 +18,12 @@ router.post(
 
 router.post('/login', authController.login);
 
+router.use(authMiddleware.protect);
+
 router.get('/renew', authController.renew);
 
 router.patch(
   '/password/:id',
-  authMiddleware.protect,
   validationMiddleware.updateUserValidation,
   userMiddleware.validUser,
   authController.updatePassword
