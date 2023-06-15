@@ -5,10 +5,17 @@ const userController = require('../controllers/users.controller');
 
 //middlewares
 const userMiddleware = require('./../middlewares/users.middleware');
+const authMiddleware = require('./../middlewares/auth.middleware');
 
 const router = express.Router();
 
-router.get('/', userController.findAllUsers);
+router.use(authMiddleware.protect);
+
+router.get(
+  '/',
+  /*authMiddleware.restrictTo('admin'),*/
+  userController.findAllUsers
+);
 
 router
   .route('/:id')

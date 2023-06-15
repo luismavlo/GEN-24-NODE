@@ -11,3 +11,10 @@
 [2023-06-14T02:54:42.085Z] info The owner of this token it not longer available undefined:undefined
 [2023-06-14T03:33:30.379Z] info You do not own this account. undefined:undefined
 [2023-06-14T03:46:56.163Z] info User recently changed password!, please login again. undefined:undefined
+[2023-06-15T01:24:47.159Z] info You are not logged in!, Please log in to get access undefined:undefined
+[2023-06-15T01:25:33.437Z] info jwt expired undefined:undefined
+[2023-06-15T01:40:37.367Z] info You do not have permission to perform this action! undefined:undefined
+[2023-06-15T01:51:22.648Z] info invalid signature undefined:undefined
+[2023-06-15T01:57:23.220Z] info undefined undefined:undefined
+[2023-06-15T01:58:59.544Z] info Invalid Token. Please login again! undefined:undefined
+[2023-06-15T01:59:29.764Z] info invalid signature undefined:undefined
