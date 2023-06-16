@@ -18,3 +18,6 @@
 [2023-06-15T01:57:23.220Z] info undefined undefined:undefined
 [2023-06-15T01:58:59.544Z] info Invalid Token. Please login again! undefined:undefined
 [2023-06-15T01:59:29.764Z] info invalid signature undefined:undefined
+[2023-06-15T03:06:23.828Z] info invalid signature undefined:undefined
+[2023-06-15T14:27:58.922Z] info jwt expired TokenExpiredError: jwt expired
+[2023-06-15T14:31:19.181Z] info jwt expired TokenExpiredError: jwt expired
