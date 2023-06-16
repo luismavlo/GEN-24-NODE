@@ -21,3 +21,5 @@
 [2023-06-15T03:06:23.828Z] info invalid signature undefined:undefined
 [2023-06-15T14:27:58.922Z] info jwt expired TokenExpiredError: jwt expired
 [2023-06-15T14:31:19.181Z] info jwt expired TokenExpiredError: jwt expired
+[2023-06-16T03:53:31.972Z] info Cant find /api/v1/user on this server! Error: Cant find /api/v1/user on this server!
+[2023-06-16T03:53:36.292Z] info jwt expired TokenExpiredError: jwt expired
