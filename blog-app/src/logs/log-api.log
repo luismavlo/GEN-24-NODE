@@ -29,3 +29,7 @@
 [2023-06-17T02:38:37.037Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
 [2023-06-17T02:52:44.280Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
 [2023-06-17T02:59:56.497Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-17T03:37:25.943Z] info users is not associated to posts! SequelizeEagerLoadingError: users is not associated to posts!
+[2023-06-17T03:42:30.709Z] info users is not associated to posts! SequelizeEagerLoadingError: users is not associated to posts!
+[2023-06-17T03:44:32.490Z] info Cannot read properties of undefined (reading 'id') TypeError: Cannot read properties of undefined (reading 'id')
+[2023-06-17T03:45:56.425Z] info You do not own this account. Error: You do not own this account.

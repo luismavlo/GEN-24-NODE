@@ -24,7 +24,11 @@ router
   .use('/:id', postMiddleware.validPost)
   .route('/:id')
   .get(postController.findOnePost)
-  .patch(validationMiddleware.createPostValidation, postController.updatePost)
-  .delete(postController.deletePost);
+  .patch(
+    validationMiddleware.createPostValidation,
+    authMiddleware.protectAccountOwner,
+    postController.updatePost
+  )
+  .delete(authMiddleware.protectAccountOwner, postController.deletePost);
 
 module.exports = router;

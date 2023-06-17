@@ -1,4 +1,5 @@
 const Post = require('../models/posts.model');
+const User = require('../models/users.model');
 const catchAsync = require('../utils/catchAsync');
 
 exports.findAllPost = catchAsync(async (req, res, next) => {
@@ -9,6 +10,12 @@ exports.findAllPost = catchAsync(async (req, res, next) => {
     attributes: {
       exclude: ['userId', 'status'],
     },
+    include: [
+      {
+        model: User,
+        attributes: ['id', 'name', 'profileImgUrl', 'description'],
+      },
+    ],
     order: [['createdAt', 'DESC']],
     limit: 10,
   });
