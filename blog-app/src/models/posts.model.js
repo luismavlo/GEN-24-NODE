@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../database/config');
 
-const post = db.define('posts', {
+const Post = db.define('posts', {
   id: {
     primaryKey: true,
     autoIncrement: true,
@@ -27,4 +27,4 @@ const post = db.define('posts', {
   },
 });
 
-module.exports = post;
+module.exports = Post;
