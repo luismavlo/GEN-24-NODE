@@ -13,6 +13,7 @@ const globalErrorHandler = require('./controllers/error.controller');
 const authRouter = require('./routes/auth.routes');
 const userRouter = require('./routes/users.routes');
 const postRouter = require('./routes/posts.routes');
+const commentRouter = require('./routes/posts.routes');
 
 const app = express();
 const limiter = rateLimit({
@@ -47,6 +48,7 @@ app.use('/api/v1', limiter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/posts', postRouter);
+app.use('/api/v1/comments', commentRouter);
 
 app.all('*', (req, res, next) => {
   return next(
