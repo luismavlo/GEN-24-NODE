@@ -19,8 +19,15 @@ router
     postController.createPost
   );
 
+router.use(authMiddleware.protect);
+
+router.get('/me', postController.findMyPost);
+
+//TODO: Hacer el endpoint para buscar los posts de un usuario en especifico
+//siendo :id el id del usuario incluir el modelo del usuario
+// router.get('/profile/:id')
+
 router
-  .use(authMiddleware.protect)
   .use('/:id', postMiddleware.validPost)
   .route('/:id')
   .get(postController.findOnePost)

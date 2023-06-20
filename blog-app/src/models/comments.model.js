@@ -23,6 +23,7 @@ const Comment = db.define('comments', {
   status: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
+    defaultValue: true,
   },
 });
 

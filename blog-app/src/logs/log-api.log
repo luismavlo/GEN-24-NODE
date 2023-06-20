@@ -33,3 +33,18 @@
 [2023-06-17T03:42:30.709Z] info users is not associated to posts! SequelizeEagerLoadingError: users is not associated to posts!
 [2023-06-17T03:44:32.490Z] info Cannot read properties of undefined (reading 'id') TypeError: Cannot read properties of undefined (reading 'id')
 [2023-06-17T03:45:56.425Z] info You do not own this account. Error: You do not own this account.
+[2023-06-20T02:57:10.700Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-20T02:57:48.225Z] info Cant find /api/v1/comments/10 on this server! Error: Cant find /api/v1/comments/10 on this server!
+[2023-06-20T02:58:19.141Z] info Cant find /api/v1/comments/10 on this server! Error: Cant find /api/v1/comments/10 on this server!
+[2023-06-20T02:58:37.299Z] info Cant find /api/v1/comments/10 on this server! Error: Cant find /api/v1/comments/10 on this server!
+[2023-06-20T03:14:47.321Z] info Post with id: undefined not found Error: Post with id: undefined not found
+[2023-06-20T03:15:13.974Z] info Post with id: 100 not found Error: Post with id: 100 not found
+[2023-06-20T03:34:17.096Z] info Comment is not defined ReferenceError: Comment is not defined
+[2023-06-20T03:34:27.534Z] info Comment is not defined ReferenceError: Comment is not defined
+[2023-06-20T03:40:27.437Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-20T03:40:41.450Z] info findOne is not defined ReferenceError: findOne is not defined
+[2023-06-20T03:43:58.040Z] info Comment with id: 1000 not found Error: Comment with id: 1000 not found
+[2023-06-20T03:44:37.667Z] info You do not own this account. Error: You do not own this account.
+[2023-06-20T04:00:49.180Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-20T04:00:54.530Z] info la sintaxis de entrada no es válida para tipo integer: «me» SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «me»
+[2023-06-20T04:02:07.688Z] info la sintaxis de entrada no es válida para tipo integer: «me» SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «me»

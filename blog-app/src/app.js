@@ -13,7 +13,7 @@ const globalErrorHandler = require('./controllers/error.controller');
 const authRouter = require('./routes/auth.routes');
 const userRouter = require('./routes/users.routes');
 const postRouter = require('./routes/posts.routes');
-const commentRouter = require('./routes/posts.routes');
+const commentRouter = require('./routes/comment.routes');
 
 const app = express();
 const limiter = rateLimit({

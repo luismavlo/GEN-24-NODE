@@ -1,3 +1,4 @@
+const { db } = require('../database/config');
 const Post = require('../models/posts.model');
 const User = require('../models/users.model');
 const catchAsync = require('../utils/catchAsync');
@@ -49,6 +50,25 @@ exports.findOnePost = catchAsync(async (req, res, next) => {
   return res.status(200).json({
     status: 'success',
     post,
+  });
+});
+
+exports.findMyPost = catchAsync(async (req, res, next) => {
+  const { sessionUser } = req;
+
+  const query = `SELECT * FROM posts WHERE "userId" = :iduser AND status = :status`;
+
+  const [rows, fields] = await db.query(query, {
+    replacements: {
+      iduser: sessionUser.id,
+      status: 'active',
+    },
+  });
+
+  res.status(200).json({
+    status: 'success',
+    results: fields.rowCount,
+    posts: rows,
   });
 });
 
