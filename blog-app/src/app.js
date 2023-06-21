@@ -26,13 +26,13 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(hpp());
-app.use(
-  sanitizer.clean({
-    xss: true,
-    noSql: true,
-    sql: true,
-  })
-);
+// app.use(
+//   sanitizer.clean({
+//     xss: true,
+//     noSql: true,
+//     sql: true,
+//   })
+// );
 
 //TODO: VERIFICAR LA LIBRERIA XSS
 

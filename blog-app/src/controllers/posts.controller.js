@@ -32,15 +32,15 @@ exports.createPost = catchAsync(async (req, res, next) => {
   const { title, content } = req.body;
   const { id } = req.sessionUser;
 
-  const post = await Post.create({
-    title,
-    content,
-    userId: id,
-  });
+  // const post = await Post.create({
+  //   title,
+  //   content,
+  //   userId: id,
+  // });
 
   return res.status(201).json({
     status: 'success',
-    post,
+    // post,
   });
 });
 

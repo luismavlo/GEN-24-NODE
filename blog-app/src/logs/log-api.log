@@ -49,3 +49,10 @@
 [2023-06-20T04:00:54.530Z] info la sintaxis de entrada no es válida para tipo integer: «me» SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «me»
 [2023-06-20T04:02:07.688Z] info la sintaxis de entrada no es válida para tipo integer: «me» SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «me»
 [2023-06-21T01:47:24.401Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-21T02:54:24.126Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-21T02:54:44.761Z] info Cant find /api/v1/users/signup on this server! Error: Cant find /api/v1/users/signup on this server!
+[2023-06-21T03:43:35.778Z] info Field name missing MulterError: Field name missing
+[2023-06-21T03:46:13.702Z] info Maximum call stack size exceeded RangeError: Maximum call stack size exceeded
+[2023-06-21T03:46:18.300Z] info Maximum call stack size exceeded RangeError: Maximum call stack size exceeded
+[2023-06-21T04:04:46.045Z] info Cant find /1687320206111-HD-wallpaper-husky-and-sunset-dog-dogs-husky-lake-landscape-nature-sunset-water.jpg on this server! Error: Cant find /1687320206111-HD-wallpaper-husky-and-sunset-dog-dogs-husky-lake-landscape-nature-sunset-water.jpg on this server!
+[2023-06-21T04:04:47.157Z] info Cant find /1687320206111-HD-wallpaper-husky-and-sunset-dog-dogs-husky-lake-landscape-nature-sunset-water.jpg on this server! Error: Cant find /1687320206111-HD-wallpaper-husky-and-sunset-dog-dogs-husky-lake-landscape-nature-sunset-water.jpg on this server!
