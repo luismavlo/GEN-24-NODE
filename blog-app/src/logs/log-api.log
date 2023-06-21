@@ -48,3 +48,4 @@
 [2023-06-20T04:00:49.180Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
 [2023-06-20T04:00:54.530Z] info la sintaxis de entrada no es válida para tipo integer: «me» SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «me»
 [2023-06-20T04:02:07.688Z] info la sintaxis de entrada no es válida para tipo integer: «me» SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «me»
+[2023-06-21T01:47:24.401Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access

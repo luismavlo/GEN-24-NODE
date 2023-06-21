@@ -72,6 +72,29 @@ exports.findMyPost = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.findUserPost = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+
+  const posts = await Post.findAll({
+    where: {
+      userId: id,
+      status: 'active',
+    },
+    include: [
+      {
+        model: User,
+        attributes: { exclude: ['password', 'passwordChangedAt'] },
+      },
+    ],
+  });
+
+  return res.status(200).json({
+    status: 'success',
+    results: posts.length,
+    posts,
+  });
+});
+
 exports.updatePost = catchAsync(async (req, res, next) => {
   const { post } = req;
   const { title, content } = req.body;

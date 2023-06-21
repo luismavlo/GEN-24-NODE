@@ -7,6 +7,7 @@ const postController = require('../controllers/posts.controller');
 const validationMiddleware = require('./../middlewares/validations.middleware');
 const authMiddleware = require('./../middlewares/auth.middleware');
 const postMiddleware = require('./../middlewares/post.middleware');
+const userMiddleware = require('./../middlewares/users.middleware');
 
 const router = express.Router();
 
@@ -23,9 +24,11 @@ router.use(authMiddleware.protect);
 
 router.get('/me', postController.findMyPost);
 
-//TODO: Hacer el endpoint para buscar los posts de un usuario en especifico
-//siendo :id el id del usuario incluir el modelo del usuario
-// router.get('/profile/:id')
+router.get(
+  '/profile/:id',
+  userMiddleware.validUser,
+  postController.findUserPost
+);
 
 router
   .use('/:id', postMiddleware.validPost)
