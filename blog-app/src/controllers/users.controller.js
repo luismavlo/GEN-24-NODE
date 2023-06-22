@@ -9,12 +9,15 @@ exports.findAllUsers = catchAsync(async (req, res, next) => {
       status: 'active',
     },
   });
-
+  //recorremos todos los usuarios para hacer el cambio del path x la url
   const usersPromises = users.map(async (user) => {
+    //obtenemos la referencia
     const imgRef = ref(storage, user.profileImgUrl);
+    //nos traemos la url
     const url = await getDownloadURL(imgRef);
-
+    //hacemos el cambio del path x la url
     user.profileImgUrl = url;
+    //retornamos el usuario
     return user;
   });
 

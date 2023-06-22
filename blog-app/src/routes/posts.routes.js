@@ -8,6 +8,7 @@ const validationMiddleware = require('./../middlewares/validations.middleware');
 const authMiddleware = require('./../middlewares/auth.middleware');
 const postMiddleware = require('./../middlewares/post.middleware');
 const userMiddleware = require('./../middlewares/users.middleware');
+const { upload } = require('./../utils/multer');
 
 const router = express.Router();
 
@@ -15,6 +16,7 @@ router
   .route('/')
   .get(postController.findAllPost)
   .post(
+    upload.array('postImgs', 3),
     validationMiddleware.createPostValidation,
     authMiddleware.protect,
     postController.createPost

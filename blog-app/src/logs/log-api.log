@@ -60,3 +60,4 @@
 [2023-06-22T01:21:39.182Z] info Cant find /api/v1/user/13 on this server! Error: Cant find /api/v1/user/13 on this server!
 [2023-06-22T01:21:48.406Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
 [2023-06-22T01:39:54.946Z] info Firebase Storage: Invalid URL 'https://www.researchgate.net/profile/Maria-Monreal/publication/315108532/figure/fig1/AS:472492935520261@1489662502634/Figura-2-Avatar-que-aparece-por-defecto-en-Facebook.png'. (storage/invalid-url) FirebaseError: Firebase Storage: Invalid URL 'https://www.researchgate.net/profile/Maria-Monreal/publication/315108532/figure/fig1/AS:472492935520261@1489662502634/Figura-2-Avatar-que-aparece-por-defecto-en-Facebook.png'. (storage/invalid-url)
+[2023-06-22T03:40:59.609Z] info jwt expired TokenExpiredError: jwt expired
