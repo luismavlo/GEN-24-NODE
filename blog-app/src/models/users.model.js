@@ -33,7 +33,7 @@ const User = db.define('users', {
     type: DataTypes.STRING,
     allowNull: false,
     defaultValue:
-      'https://www.researchgate.net/profile/Maria-Monreal/publication/315108532/figure/fig1/AS:472492935520261@1489662502634/Figura-2-Avatar-que-aparece-por-defecto-en-Facebook.png',
+      'users/1687320206111-HD-wallpaper-husky-and-sunset-dog-dogs-husky-lake-landscape-nature-sunset-water.jpg',
   },
   role: {
     type: DataTypes.ENUM('user', 'admin'),

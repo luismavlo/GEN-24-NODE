@@ -26,15 +26,13 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(hpp());
-// app.use(
-//   sanitizer.clean({
-//     xss: true,
-//     noSql: true,
-//     sql: true,
-//   })
-// );
-
-//TODO: VERIFICAR LA LIBRERIA XSS
+app.use(
+  sanitizer.clean({
+    xss: true,
+    noSql: true,
+    sql: false, //obligatoriamente colocar en false, estos manes juegan con los sentimientos de uno
+  })
+);
 
 console.log(process.env.NODE_ENV);
 
