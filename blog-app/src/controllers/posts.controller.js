@@ -4,9 +4,8 @@ const Post = require('../models/posts.model');
 const User = require('../models/users.model');
 const catchAsync = require('../utils/catchAsync');
 const { storage } = require('../utils/firebase');
-const { ref, uploadBytes } = require('firebase/storage');
+const { ref, uploadBytes, getDownloadURL } = require('firebase/storage');
 
-//TODO: Resolver las imagenes de firebase para cuando se traiga todos los post
 exports.findAllPost = catchAsync(async (req, res, next) => {
   const posts = await Post.findAll({
     where: {
@@ -28,10 +27,32 @@ exports.findAllPost = catchAsync(async (req, res, next) => {
     limit: 10,
   });
 
+  const postPromises = posts.map(async (post) => {
+    const postImgsPromises = post.postImgs.map(async (postImg) => {
+      const imgRef = ref(storage, postImg.postImgUrl);
+      const url = await getDownloadURL(imgRef);
+
+      postImg.postImgUrl = url;
+      return postImg;
+    });
+
+    const imgRefUser = ref(storage, post.user.profileImgUrl);
+    const urlProfile = await getDownloadURL(imgRefUser);
+
+    post.user.profileImgUrl = urlProfile;
+
+    const postImgsResolved = await Promise.all(postImgsPromises);
+    post.postImgs = postImgsResolved;
+
+    return post;
+  });
+
+  const postResolved = await Promise.all(postPromises);
+
   return res.status(200).json({
     status: 'success',
     results: posts.length,
-    posts,
+    posts: postResolved,
   });
 });
 
@@ -44,8 +65,6 @@ exports.createPost = catchAsync(async (req, res, next) => {
     content,
     userId: id,
   });
-
-  console.log(req.files);
 
   const postImgsPromises = req.files.map(async (file) => {
     const imgRef = ref(storage, `posts/${Date.now()}-${file.originalname}`);
@@ -65,9 +84,33 @@ exports.createPost = catchAsync(async (req, res, next) => {
   });
 });
 
-//TODO: Resolver las imagenes de firebase para findOnePost
 exports.findOnePost = catchAsync(async (req, res, next) => {
   const { post } = req;
+
+  const imgRefUserProfile = ref(storage, post.user.profileImgUrl);
+  const urlProfileUser = await getDownloadURL(imgRefUserProfile);
+
+  post.user.profileImgUrl = urlProfileUser;
+
+  const postImgsPromises = post.postImgs.map(async (postImg) => {
+    const imgRef = ref(storage, postImg.postImgUrl);
+    const url = await getDownloadURL(imgRef);
+
+    postImg.postImgUrl = url;
+    return postImg;
+  });
+
+  const userImgsCommentPromises = post.comments.map(async (comment) => {
+    const imgRef = ref(storage, comment.user.profileImgUrl);
+    const url = await getDownloadURL(imgRef);
+
+    comment.user.profileImgUrl = url;
+    return comment;
+  });
+
+  const arrPromises = [...postImgsPromises, ...userImgsCommentPromises];
+
+  await Promise.all(arrPromises);
 
   return res.status(200).json({
     status: 'success',
@@ -95,7 +138,7 @@ exports.findMyPost = catchAsync(async (req, res, next) => {
   });
 });
 
-//TODO: Resolver las imagnes de firebase para findUserPost
+//TODO: resolver imagenes - tarea
 exports.findUserPost = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
@@ -108,6 +151,9 @@ exports.findUserPost = catchAsync(async (req, res, next) => {
       {
         model: User,
         attributes: { exclude: ['password', 'passwordChangedAt'] },
+      },
+      {
+        model: PostImg,
       },
     ],
   });

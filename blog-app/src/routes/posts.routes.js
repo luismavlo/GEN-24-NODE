@@ -33,14 +33,18 @@ router.get(
 );
 
 router
-  .use('/:id', postMiddleware.validPost)
   .route('/:id')
-  .get(postController.findOnePost)
+  .get(postMiddleware.validPostPerFindOne, postController.findOnePost)
   .patch(
+    postMiddleware.validPost,
     validationMiddleware.createPostValidation,
     authMiddleware.protectAccountOwner,
     postController.updatePost
   )
-  .delete(authMiddleware.protectAccountOwner, postController.deletePost);
+  .delete(
+    postMiddleware.validPost,
+    authMiddleware.protectAccountOwner,
+    postController.deletePost
+  );
 
 module.exports = router;

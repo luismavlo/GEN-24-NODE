@@ -61,3 +61,12 @@
 [2023-06-22T01:21:48.406Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
 [2023-06-22T01:39:54.946Z] info Firebase Storage: Invalid URL 'https://www.researchgate.net/profile/Maria-Monreal/publication/315108532/figure/fig1/AS:472492935520261@1489662502634/Figura-2-Avatar-que-aparece-por-defecto-en-Facebook.png'. (storage/invalid-url) FirebaseError: Firebase Storage: Invalid URL 'https://www.researchgate.net/profile/Maria-Monreal/publication/315108532/figure/fig1/AS:472492935520261@1489662502634/Figura-2-Avatar-que-aparece-por-defecto-en-Facebook.png'. (storage/invalid-url)
 [2023-06-22T03:40:59.609Z] info jwt expired TokenExpiredError: jwt expired
+[2023-06-23T00:23:34.796Z] info llave duplicada viola restricción de unicidad «users_email_key» SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «users_email_key»
+[2023-06-23T00:25:36.071Z] info Duplicate field value: please use another value Error: Duplicate field value: please use another value
+[2023-06-23T02:43:28.065Z] info urlProfile is not defined ReferenceError: urlProfile is not defined
+[2023-06-23T03:22:43.289Z] info Post with id: 10 not found Error: Post with id: 10 not found
+[2023-06-23T03:22:52.758Z] info Post with id: 13 not found Error: Post with id: 13 not found
+[2023-06-23T03:24:45.806Z] info Post with id: 13 not found Error: Post with id: 13 not found
+[2023-06-23T03:25:00.280Z] info Post with id: 13 not found Error: Post with id: 13 not found
+[2023-06-23T03:25:06.567Z] info Post with id: 13 not found Error: Post with id: 13 not found
+[2023-06-23T03:25:15.758Z] info Post with id: 13 not found Error: Post with id: 13 not found
