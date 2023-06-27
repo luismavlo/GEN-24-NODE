@@ -19,6 +19,21 @@ class Socket {
         this.studentList.increaseVotes(id);
         this.io.emit('current-students', this.studentList.getStudents());
       });
+
+      socket.on('delete-student', (id) => {
+        this.studentList.removeStudent(id);
+        this.io.emit('current-students', this.studentList.getStudents());
+      });
+
+      socket.on('change-student-name', ({ id, name }) => {
+        this.studentList.changeStudentName(id, name);
+        this.io.emit('current-students', this.studentList.getStudents());
+      });
+
+      socket.on('new-student', ({ name }) => {
+        this.studentList.addStudent(name);
+        this.io.emit('current-students', this.studentList.getStudents());
+      });
     });
   }
 }
