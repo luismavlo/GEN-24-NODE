@@ -1,11 +1,33 @@
 import { useEffect, useState } from "react";
 
-export const StudentList = ({ data, vote }) => {
+export const StudentList = ({
+  data,
+  vote,
+  deleteStudent,
+  changeStudentName,
+}) => {
   const [students, setStudents] = useState(data);
 
   useEffect(() => {
     setStudents(data);
   }, [data]);
+
+  const chageName = (event, id) => {
+    const newName = event.target.value;
+    setStudents((students) =>
+      students.map((student) => {
+        if (student.id === id) {
+          student.name = newName;
+        }
+
+        return student;
+      })
+    );
+  };
+
+  const onLostFocus = (id, name) => {
+    changeStudentName(id, name);
+  };
 
   const createRows = () => {
     return students.map((student) => (
@@ -19,11 +41,21 @@ export const StudentList = ({ data, vote }) => {
           </button>
         </td>
         <td>
-          <input type="text" className="form-control" value={student.name} />
+          <input
+            type="text"
+            className="form-control"
+            value={student.name}
+            onChange={(event) => chageName(event, student.id)}
+            onBlur={() => onLostFocus(student.id, student.name)}
+          />
         </td>
         <td>{student.votes}</td>
         <td>
-          <button type="button" className="btn btn-outline-danger">
+          <button
+            type="button"
+            className="btn btn-outline-danger"
+            onClick={() => deleteStudent(student.id)}
+          >
             Borrar
           </button>
         </td>
