@@ -15,6 +15,8 @@ exports.protect = catchAsync(async (req, res, next) => {
     token = req.headers.authorization.split(' ')[1];
   }
 
+  console.log(req.headers.authorization);
+
   //2. validar si existe el token
   if (!token) {
     return next(

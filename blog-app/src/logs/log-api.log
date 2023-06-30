@@ -70,3 +70,61 @@
 [2023-06-23T03:25:00.280Z] info Post with id: 13 not found Error: Post with id: 13 not found
 [2023-06-23T03:25:06.567Z] info Post with id: 13 not found Error: Post with id: 13 not found
 [2023-06-23T03:25:15.758Z] info Post with id: 13 not found Error: Post with id: 13 not found
+[2023-06-28T02:34:31.282Z] info invalid signature JsonWebTokenError: invalid signature
+[2023-06-29T00:34:43.140Z] info invalid signature JsonWebTokenError: invalid signature
+[2023-06-29T00:36:44.993Z] info invalid signature JsonWebTokenError: invalid signature
+[2023-06-29T00:38:02.281Z] info invalid signature JsonWebTokenError: invalid signature
+[2023-06-29T00:38:53.019Z] info invalid signature JsonWebTokenError: invalid signature
+[2023-06-29T00:43:45.065Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:25:09.865Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:29:03.069Z] info Incorrect email or password Error: Incorrect email or password
+[2023-06-29T01:29:25.629Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:36:36.460Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:40:07.222Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:40:48.798Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:42:52.876Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:43:23.820Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:47:50.710Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:50:22.918Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:52:05.495Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:52:25.343Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:53:39.776Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:54:25.247Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:57:34.300Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:57:49.976Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T01:59:56.869Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T02:00:20.665Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T02:03:24.873Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T02:03:32.971Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T02:04:09.916Z] info Cannot read properties of undefined (reading 'map') TypeError: Cannot read properties of undefined (reading 'map')
+[2023-06-29T02:04:56.941Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:05:37.967Z] info Cannot read properties of undefined (reading 'map') TypeError: Cannot read properties of undefined (reading 'map')
+[2023-06-29T02:05:51.862Z] info Cannot read properties of undefined (reading 'map') TypeError: Cannot read properties of undefined (reading 'map')
+[2023-06-29T02:07:47.328Z] info Cannot read properties of undefined (reading 'map') TypeError: Cannot read properties of undefined (reading 'map')
+[2023-06-29T02:08:26.707Z] info Cannot read properties of undefined (reading 'map') TypeError: Cannot read properties of undefined (reading 'map')
+[2023-06-29T02:09:07.092Z] info Cannot read properties of undefined (reading 'map') TypeError: Cannot read properties of undefined (reading 'map')
+[2023-06-29T02:09:21.193Z] info Cannot read properties of undefined (reading 'map') TypeError: Cannot read properties of undefined (reading 'map')
+[2023-06-29T02:10:33.289Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:11:06.369Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:11:23.532Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:11:26.446Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:12:29.650Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T02:14:03.969Z] info jwt malformed JsonWebTokenError: jwt malformed
+[2023-06-29T02:15:48.574Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:20:18.666Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:20:48.067Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:22:01.980Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:24:23.284Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:24:50.170Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:13.943Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:13.953Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:22.897Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:22.912Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:22.924Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:25.343Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:25.353Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:28.294Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:28.303Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:28.311Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:44.506Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access
+[2023-06-29T02:26:44.514Z] info You are not logged in!, Please log in to get access Error: You are not logged in!, Please log in to get access

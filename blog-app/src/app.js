@@ -1,19 +1,19 @@
 const cors = require('cors');
 const express = require('express');
+const helmet = require('helmet');
+const hpp = require('hpp');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
 const sanitizer = require('perfect-express-sanitizer');
-const hpp = require('hpp');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/error.controller');
 
 //routes
 const authRouter = require('./routes/auth.routes');
-const userRouter = require('./routes/users.routes');
-const postRouter = require('./routes/posts.routes');
 const commentRouter = require('./routes/comment.routes');
+const postRouter = require('./routes/posts.routes');
+const userRouter = require('./routes/users.routes');
 
 const app = express();
 const limiter = rateLimit({

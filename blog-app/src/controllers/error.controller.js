@@ -12,6 +12,7 @@ const handleJWTError = () =>
 
 const sendErrorDev = (err, res) => {
   logger.info(err);
+  console.log(err);
   return res.status(err.statusCode).json({
     status: err.status,
     error: err,

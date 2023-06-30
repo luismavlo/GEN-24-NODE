@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const generateJWT = require('./../utils/jwt');
 const AppError = require('../utils/appError');
 
-const { ref, uploadBytes } = require('firebase/storage');
+const { ref, uploadBytes, getDownloadURL } = require('firebase/storage');
 const { storage } = require('./../utils/firebase');
 
 exports.signup = catchAsync(async (req, res, next) => {
@@ -23,6 +23,8 @@ exports.signup = catchAsync(async (req, res, next) => {
     description,
     profileImgUrl: imgUploaded.metadata.fullPath,
   });
+
+  //TODO: Descargarnos la imagen
 
   const token = await generateJWT(user.id);
 
@@ -64,6 +66,13 @@ exports.login = catchAsync(async (req, res, next) => {
 
   //4. generar el token
   const token = await generateJWT(user.id);
+
+  console.log(token);
+
+  const imgRef = ref(storage, user.profileImgUrl);
+  const url = await getDownloadURL(imgRef);
+
+  user.profileImgUrl = url;
 
   //5. enviar la respuesta al cliente
 

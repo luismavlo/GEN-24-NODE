@@ -66,6 +66,8 @@ exports.createPost = catchAsync(async (req, res, next) => {
     userId: id,
   });
 
+  console.log(req.files, 'dsds');
+
   const postImgsPromises = req.files.map(async (file) => {
     const imgRef = ref(storage, `posts/${Date.now()}-${file.originalname}`);
     const imgUploaded = await uploadBytes(imgRef, file.buffer);
